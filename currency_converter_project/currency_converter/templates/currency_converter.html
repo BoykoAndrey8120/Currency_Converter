@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Conversion</title>
+</head>
+<body>
+    <h1>Currency Conversion</h1>
+
+<form method="post" action="{% url 'convert_currency' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Convert</button>
+</form>
+
+{% if result %}
+  <div>
+    <h3>Conversion Result:</h3>
+    <p>From Currency: {{ result.from_currency }}</p>
+    <p>To Currency: {{ result.to_currency }}</p>
+    <p>Amount: {{ result.amount }}</p>
+    <p>Converted Amount: {{ result.converted_amount }}</p>
+  </div>
+    <a href="{% url 'all_operations' %}">SHOW ALL OPERATIONS</a>
+{% endif %}
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>all-operations</title>
+</head>
+<body>
+    <h1>all-operations</h1>
+
+    <ul>
+        {% for operation in all_operations %}
+            <li>{{ operation.amount }} {{ operation.from_currency }}
+                - це дорівнює {{ operation.converted_amount }}  {{ operation.to_currency }}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
